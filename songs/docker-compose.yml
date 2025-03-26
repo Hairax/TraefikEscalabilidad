@@ -1,0 +1,13 @@
+services:
+  api:
+    build: 
+      context: .
+    networks:
+      - traefik
+    labels:
+      - "traefik.http.routers.songs-api.rule=Host(`songs.localhost`)"
+      - "traefik.http.services.songs-api.loadbalancer.server.port=8080"
+
+networks:
+  traefik:
+    external: true

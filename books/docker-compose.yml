@@ -1,0 +1,12 @@
+services:
+  api:
+    build: 
+      context: .
+    networks:
+      - traefik
+    labels:
+      - "traefik.http.routers.books-api.rule=Host(`books.localhost`)"
+
+networks:
+  traefik:
+    external: true

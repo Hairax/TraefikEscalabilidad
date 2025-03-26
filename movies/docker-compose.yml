@@ -1,0 +1,12 @@
+services:
+  api:
+    build: 
+      context: .
+    networks:
+      - traefik
+    labels:
+      - "traefik.http.routers.movies-api.rule=Host(`movies.localhost`)"
+
+networks:
+  traefik:
+    external: true
